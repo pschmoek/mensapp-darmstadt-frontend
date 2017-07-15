@@ -1,0 +1,11 @@
+<md-toolbar style="padding-top: 10px">
+  <md-select style="width: 200px" placeholder="Mensa" [formControl]="mensaControl">
+    <md-option *ngFor="let mensa of mensas" [value]="mensa.id">{{ mensa.name }} {{ mensa.sublocation }}</md-option>
+  </md-select>
+  <span style="flex: 1 1 auto"></span>
+  <md-input-container>
+    <input style="width: 120px" [formControl]="dateControl" mdInput [mdDatepicker]="myDatepicker">
+    <button [mdDatepickerToggle]="myDatepicker"></button>
+  </md-input-container>
+  <md-datepicker #myDatepicker></md-datepicker>
+</md-toolbar>
