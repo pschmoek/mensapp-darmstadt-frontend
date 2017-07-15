@@ -1,0 +1,12 @@
+* {
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+
+div {
+  display: flex;
+}
+
+.nameCol {
+  margin-left: 20px;
+}

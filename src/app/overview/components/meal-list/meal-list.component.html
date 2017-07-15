@@ -1,4 +1,4 @@
-<div *ngIf="items && items.length > 0; else noDataMessage">
+<div class="container" *ngIf="items && items.length > 0; else noDataMessage">
   <app-meal *ngFor="let item of items" [mealWithLocation]="item">
   </app-meal>
 </div>
