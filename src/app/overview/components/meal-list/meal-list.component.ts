@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import * as moment from 'moment';
 
 import { MealWithLocations } from '../../models/meal-with-locations';
 import { MealWithLocationsService } from '../../services/meal-with-locations.service';
@@ -9,12 +11,20 @@ import { MealWithLocationsService } from '../../services/meal-with-locations.ser
   styleUrls: ['./meal-list.component.css']
 })
 export class MealListComponent implements OnInit {
-
+  dateControl = new FormControl();
+  mensaControl = new FormControl();
   items: MealWithLocations[];
+  mensas = [{name: 'alle', sublocation: '', id: -1}];
 
   constructor(private service: MealWithLocationsService) { }
 
   ngOnInit() {
-    this.service.getMeals('18.07.2017').subscribe(m => this.items = m);
+    this.dateControl.valueChanges.subscribe(v => {
+      if (v) {
+        this.service.getMeals(moment(v).format('DD.MM.YYYY')).subscribe(m => this.items = m);
+      }
+    });
+    this.dateControl.setValue(new Date());
+    this.mensaControl.setValue(-1);
   }
 }

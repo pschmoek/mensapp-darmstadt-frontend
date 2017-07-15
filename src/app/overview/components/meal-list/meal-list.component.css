@@ -18,6 +18,12 @@ app-meal {
 
 @media (max-width: 800px) {
   app-meal {
-    width: 50%
+    width: 49%
   }
+}
+
+.nodata {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { MdNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
@@ -13,6 +14,7 @@ import { OverviewModule } from './overview/overview.module';
   ],
   imports: [
     BrowserModule,
+    MdNativeDateModule,
     HttpModule,
     BrowserAnimationsModule,
     OverviewModule
