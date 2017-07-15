@@ -1,0 +1,10 @@
+<div *ngIf="items && items.length > 0; else noDataMessage">
+  <app-meal *ngFor="let item of items" [mealWithLocation]="item">
+  </app-meal>
+</div>
+
+<ng-template #noDataMessage>
+  <div>
+    Keine Daten vorhanden.
+  </div>
+</ng-template>

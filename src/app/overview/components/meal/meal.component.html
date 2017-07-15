@@ -1,0 +1,10 @@
+<div>
+  <p>{{mealWithLocation.mealName}}</p>
+  <p>letzte Mal: </p>
+  <p>{{mealWithLocation.lastDatePresent}}</p>
+</div>
+<div>
+  <app-meal-location *ngFor="let location of mealWithLocation.locations"
+    [mealLocation]="location">
+  </app-meal-location>
+</div>
