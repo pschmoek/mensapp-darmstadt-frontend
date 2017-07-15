@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { MealWithLocations } from '../models/meal-with-locations';
+import { Meal } from './meal';
 
 @Injectable()
 export class MealWithLocationsService {
   private readonly url = '/api/meals/';
-  
-  constructor(private http: Http) { }
+
+  constructor(private http: HttpClient) { }
 
   getMeals(date: string): Observable<MealWithLocations[]> {
-    return this.http.get(this.url + date)
-      .map((r: Response) => r.json())
-      .map(r => r.map(v => ({
-        mealId: v.id,
-        mealName: v.title,
+    return this.http.get<Meal[]>(this.url + date)
+      .map(meals => meals.map(m => ({
+        mealId: m.id,
+        mealName: m.title,
         date: date,
-        lastDatePresent: v.lastDate,
-        locations: v.locations.map(l => ({
+        lastDatePresent: m.lastDate,
+        locations: m.locations.map(l => ({
           mensaId: l.mensaId,
           mensaName: l.location,
           mensaSublocationName: l.subLocation,

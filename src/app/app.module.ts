@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MdNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,8 +16,8 @@ import { routes } from './app-routes';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MdNativeDateModule,
-    HttpModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     OverviewModule
