@@ -28,10 +28,10 @@ export class OverviewComponent implements OnInit {
     private mensaService: MensaService
   ) {
     this.isLoading$ = this.store.state$.map(s => s.isLoading).distinctUntilChanged();
-    this.meals$ = this.store.state$.map(s => s.mealsWithLocations).distinctUntilChanged();
+    this.meals$ = this.store.state$.map(s => s.filteredMeals).distinctUntilChanged();
     this.date$ = this.store.state$.map(s => s.date).distinctUntilChanged();
     this.mensas$ = this.store.state$.map(s => s.mensas).distinctUntilChanged();
-    this.filteredMensaId$ = this.store.state$.map(s => s.currentFilter.mensaId).distinctUntilChanged();
+    this.filteredMensaId$ = this.store.state$.map(s => s.appliedFilter.mensaId).distinctUntilChanged();
   }
 
   ngOnInit() {

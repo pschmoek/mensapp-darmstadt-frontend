@@ -1,6 +1,11 @@
 * {
   font-size: 17px;
   margin-bottom: 2px;
+  font-weight: lighter;
+}
+
+.filtered {
+  color: lightgray;
 }
 
 div {

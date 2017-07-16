@@ -1,4 +1,4 @@
-<div>
+<div [ngClass]="{filtered: mealLocation.isFiltered}">
   <span class="priceCol">{{mealLocation.price}}</span><span>&nbsp;€</span>
   <span class="nameCol">{{mealLocation.mensaName}} {{mealLocation.mensaSublocationName}}</span>
 </div>

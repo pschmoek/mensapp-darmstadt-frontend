@@ -5,22 +5,24 @@ import { MealFilter } from '../models/meal-filter';
 @Injectable()
 export class MealFilterService {
 
-  filter(meals: MealWithLocations[], filter: MealFilter) {
+  filter(meals: MealWithLocations[], filter: MealFilter): MealWithLocations[] {
     if (!meals) {
       return undefined;
     }
 
-    const result: MealWithLocations[] = [];
+    const result = [];
     for (const meal of meals) {
-      if (filter.mensaId !== -1 && meal.locations.every(l => l.mensaId !== filter.mensaId)) {
-        continue;
+      const temp = Object.assign({}, meal);
+      temp.locations = [];
+      for (const location of meal.locations) {
+        const tempLocation = Object.assign({}, location);
+        tempLocation.isFiltered = filter.mensaId !== -1 && filter.mensaId !== location.mensaId;
+        temp.locations.push(tempLocation);
       }
 
-      if (filter.searchString && meal.mealName.indexOf(filter.searchString) === -1) {
-        continue;
+      if (!temp.locations.every(l => l.isFiltered)) {
+        result.push(temp);
       }
-
-      result.push(meal);
     }
 
     return result;

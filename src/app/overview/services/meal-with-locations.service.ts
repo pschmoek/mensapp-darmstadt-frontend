@@ -17,7 +17,7 @@ export class MealWithLocationsService {
 
   initializeMeals(date: string) {
     this.store.state$.take(1).subscribe(currentState => {
-      if (currentState.mealsWithLocations) {
+      if (currentState.meals) {
         return;
       }
 

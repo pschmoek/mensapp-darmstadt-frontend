@@ -3,9 +3,10 @@ import { MealFilter } from './meal-filter';
 import { Mensa } from './mensa';
 
 export interface MealState {
-  mealsWithLocations: MealWithLocations[];
+  meals: MealWithLocations[];
+  filteredMeals: MealWithLocations[];
   isLoading: boolean;
   date: string;
-  currentFilter: MealFilter;
+  appliedFilter: MealFilter;
   mensas: Mensa[];
 }

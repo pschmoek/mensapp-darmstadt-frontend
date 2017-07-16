@@ -3,4 +3,5 @@ export interface MealLocation {
   mensaName: string;
   mensaSublocationName: string;
   price: string;
+  isFiltered?: boolean;
 }
