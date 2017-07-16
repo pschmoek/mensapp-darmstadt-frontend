@@ -4,13 +4,17 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { MealState } from './meal.state';
+import { Mensa } from './mensa';
 import { MealWithLocations } from './meal-with-locations';
 
+export const nullMensa: Mensa = { id: -1, location: '', subLocation: '' };
+
 export const initialState: MealState = {
-  currentFilter: { mensaId: null, searchString: null },
+  currentFilter: { mensaId: -1, searchString: null },
   date: moment().format('DD.MM.YYYY'),
   isLoading: false,
-  mealsWithLocations: null
+  mealsWithLocations: null,
+  mensas: [nullMensa]
 };
 
 @Injectable()
@@ -24,7 +28,8 @@ export class MealStore {
       currentFilter: current.currentFilter,
       date: current.date,
       mealsWithLocations: current.mealsWithLocations,
-      isLoading: isLoading
+      isLoading: isLoading,
+      mensas: current.mensas
     });
   }
 
@@ -34,7 +39,20 @@ export class MealStore {
       currentFilter: current.currentFilter,
       date: date,
       isLoading: current.isLoading,
-      mealsWithLocations: meals
+      mealsWithLocations: meals,
+      mensas: current.mensas
     });
   }
+
+  setMensas(mensas: Mensa[]) {
+    const current = this.stateSource.getValue();
+    this.stateSource.next({
+      currentFilter: current.currentFilter,
+      date: current.date,
+      isLoading: current.isLoading,
+      mealsWithLocations: current.mealsWithLocations,
+      mensas: [nullMensa, ...mensas]
+    });
+  }
+
 }

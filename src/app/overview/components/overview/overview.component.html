@@ -1,4 +1,4 @@
-<app-toolbar [date]="date$ | async"
+<app-toolbar [date]="date$ | async" [mensas]="mensas$ | async"
   (dateSelected)="onDateSelected($event)"></app-toolbar>
 <app-meal-list *ngIf="meals$ | async" [items]="meals$ | async"></app-meal-list>
 <app-spinner *ngIf="isLoading$ | async"

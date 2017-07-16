@@ -9,6 +9,7 @@ import { OverviewComponent } from './components/overview/overview.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MealStore } from './models/meal.store';
+import { MensaService } from './services/mensa.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { MealStore } from './models/meal.store';
   declarations: [MealListComponent, MealComponent, MealLocationComponent,
     OverviewComponent, ToolbarComponent, SpinnerComponent],
   exports: [MealListComponent],
-  providers: [MealWithLocationsService, MealStore]
+  providers: [MealWithLocationsService, MealStore, MensaService]
 })
 export class OverviewModule { }

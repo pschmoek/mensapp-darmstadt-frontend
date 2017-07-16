@@ -1,0 +1,11 @@
+.date-input {
+  cursor: pointer;
+}
+
+:host >>> .mat-input-underline {
+  background-color: transparent;
+}
+
+:host >>> .mat-input-ripple {
+  background-color: transparent;
+}
