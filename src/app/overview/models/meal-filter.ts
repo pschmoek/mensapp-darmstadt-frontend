@@ -1,4 +1,4 @@
 export interface MealFilter {
   searchString?: string;
-  mensaId?: number;
+  mensaId: number;
 }

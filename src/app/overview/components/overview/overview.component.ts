@@ -20,6 +20,7 @@ export class OverviewComponent implements OnInit {
   meals$: Observable<MealWithLocations[]>;
   date$: Observable<string>;
   mensas$: Observable<Mensa[]>;
+  filteredMensaId$: Observable<number>;
 
   constructor(
     private store: MealStore,
@@ -30,6 +31,7 @@ export class OverviewComponent implements OnInit {
     this.meals$ = this.store.state$.map(s => s.mealsWithLocations).distinctUntilChanged();
     this.date$ = this.store.state$.map(s => s.date).distinctUntilChanged();
     this.mensas$ = this.store.state$.map(s => s.mensas).distinctUntilChanged();
+    this.filteredMensaId$ = this.store.state$.map(s => s.currentFilter.mensaId).distinctUntilChanged();
   }
 
   ngOnInit() {
@@ -40,6 +42,10 @@ export class OverviewComponent implements OnInit {
 
   onDateSelected(date: string) {
     this.service.loadMeals(date);
+  }
+
+  onMensaSelected(mensaId: number) {
+    this.store.setMensaFilter(mensaId);
   }
 
 }

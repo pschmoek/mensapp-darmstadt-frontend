@@ -10,6 +10,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MealStore } from './models/meal.store';
 import { MensaService } from './services/mensa.service';
+import { MealFilterService } from './services/meal-filter.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { MensaService } from './services/mensa.service';
   declarations: [MealListComponent, MealComponent, MealLocationComponent,
     OverviewComponent, ToolbarComponent, SpinnerComponent],
   exports: [MealListComponent],
-  providers: [MealWithLocationsService, MealStore, MensaService]
+  providers: [MealWithLocationsService, MealStore, MensaService, MealFilterService]
 })
 export class OverviewModule { }
