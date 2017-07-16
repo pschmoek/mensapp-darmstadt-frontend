@@ -19,6 +19,6 @@
 
 @media (max-width: 800px) {
   md-select {
-    flex: 1 1 auto;
+    width: 100%
   }
 }
