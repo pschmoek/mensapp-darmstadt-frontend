@@ -6,7 +6,7 @@
   <md-input-container>
     <input class="date-input" (click)="myDatepicker.open()"
       readonly="readonly" [formControl]="dateControl" mdInput
-      [mdDatepicker]="myDatepicker">
+      [mdDatepicker]="myDatepicker" [disabled]="true">
   </md-input-container>
   <md-datepicker [touchUi]="true" #myDatepicker></md-datepicker>
 </md-toolbar>
