@@ -1,8 +1,9 @@
 .date-input {
   cursor: pointer;
   width: 100px;
-  margin-left: 5px;
+  margin-left: 13px;
   margin-top: 10px;
+  user-select: none;
 }
 
 :host >>> .mat-input-underline {
