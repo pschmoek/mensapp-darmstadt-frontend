@@ -4,7 +4,7 @@
   </md-select>
   <span style="flex: 1 1 auto"></span>
   <md-input-container>
-    <input class="date-input" (click)="myDatepicker.open()" readonly="readonly" [formControl]="dateControl" mdInput [mdDatepicker]="myDatepicker">
+    <input class="date-input" (click)="myDatepicker.open(); false" readonly="readonly" [formControl]="dateControl" mdInput [mdDatepicker]="myDatepicker">
   </md-input-container>
   <md-datepicker [touchUi]="true" #myDatepicker></md-datepicker>
 </md-toolbar>
