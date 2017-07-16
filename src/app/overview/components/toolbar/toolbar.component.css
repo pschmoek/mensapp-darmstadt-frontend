@@ -1,5 +1,6 @@
 .date-input {
   cursor: pointer;
+  width: 100px;
 }
 
 :host >>> .mat-input-underline {
@@ -8,4 +9,8 @@
 
 :host >>> .mat-input-ripple {
   background-color: transparent;
+}
+
+md-select {
+  width: 30%
 }
