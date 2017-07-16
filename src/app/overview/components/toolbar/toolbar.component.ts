@@ -17,7 +17,7 @@ export class ToolbarComponent implements OnInit, OnChanges {
   @Output() dateSelected = new EventEmitter<string>();
   @Output() mensaSelected = new EventEmitter<number>();
   dateControl = new FormControl();
-  mensaControl = new FormControl(-1);
+  mensaControl = new FormControl();
 
   ngOnInit() {
     this.dateControl.valueChanges.subscribe(s => {
@@ -30,16 +30,16 @@ export class ToolbarComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.dateControl.setValue(moment(this.date, 'DD.MM.YYYY'));
-    this.mensaControl.setValue(this.filteredMensaId);
+    if (changes.date && (this.date !== changes.date.currentValue || changes.date.isFirstChange())) {
+      this.dateControl.setValue(moment(this.date, 'DD.MM.YYYY'));
+    }
+    if (changes.filteredMensaId && this.mensaControl.value !== changes.filteredMensaId.currentValue) {
+      this.mensaControl.setValue(this.filteredMensaId);
+    }
   }
 
   getMensaDisplayText(mensa: Mensa) {
-    if (mensa.id === -1) {
-      return 'alle';
-    }
-
-    return mensa.location + ' ' + mensa.subLocation;
+    return mensa.id === -1 ? 'alle' : mensa.location + ' ' + mensa.subLocation;
   }
 
 }
