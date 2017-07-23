@@ -1,12 +1,13 @@
-<md-toolbar style="padding-top: 10px">
+<md-toolbar>
   <md-select placeholder="Mensa" [formControl]="mensaControl">
     <md-option *ngFor="let mensa of mensas" [value]="mensa.id">{{ getMensaDisplayText(mensa) }}</md-option>
   </md-select>
-  <span style="flex: 1 1 auto"></span>
+  <span></span>
   <md-input-container>
     <input class="date-input" (click)="myDatepicker.open()"
-      readonly="readonly" [formControl]="dateControl" mdInput
-      [mdDatepicker]="myDatepicker" [disabled]="true">
+      [formControl]="dateControl" mdInput
+      [mdDatepicker]="myDatepicker">
+    <button mdSuffix [mdDatepickerToggle]="myDatepicker"></button>
   </md-input-container>
   <md-datepicker [touchUi]="true" #myDatepicker></md-datepicker>
 </md-toolbar>
