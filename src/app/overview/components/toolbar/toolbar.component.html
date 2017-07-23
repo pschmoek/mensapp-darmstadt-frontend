@@ -2,7 +2,6 @@
   <md-select placeholder="Mensa" [formControl]="mensaControl">
     <md-option *ngFor="let mensa of mensas" [value]="mensa.id">{{ getMensaDisplayText(mensa) }}</md-option>
   </md-select>
-  <span></span>
   <md-input-container>
     <input class="date-input" (click)="myDatepicker.open()"
       [formControl]="dateControl" mdInput
